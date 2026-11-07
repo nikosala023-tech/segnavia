@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Segnavia</title>
+<meta name="description" content="Il tuo diario dei trekking in montagna: tracce, mappe, dislivelli e statistiche.">
+<meta name="theme-color" content="#F3F1EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Segnavia">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#diario" aria-label="Segnavia, torna al diario">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">Segnavia</span>
+    </a>
+    <div class="topbar-actions" id="topbarActions"></div>
+  </header>
+  <main id="view" tabindex="-1"></main>
+  <nav class="tabbar" aria-label="Sezioni">
+    <a href="#diario" data-tab="diario"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg><span>Diario</span></a>
+    <a href="#mappa" data-tab="mappa"><svg viewBox="0 0 24 24"><path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2V6Z"/><path d="M9 4v14M15 6v14"/></svg><span>Mappa</span></a>
+    <a href="#nuovo" data-tab="nuovo" class="tab-add" aria-label="Aggiungi trekking"><span class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></a>
+    <a href="#statistiche" data-tab="statistiche"><svg viewBox="0 0 24 24"><path d="m3 19 5-7 4 4 4-8 5 11"/></svg><span>Numeri</span></a>
+    <a href="#altro" data-tab="altro"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><span>Altro</span></a>
+  </nav>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="sheet-backdrop" id="sheet" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheetBody"></div></div>
+<input type="file" id="fileInput" accept=".gpx,.tcx,.zip,application/gpx+xml,application/zip" multiple hidden>
+<input type="file" id="backupInput" accept=".json,application/json" hidden>
+<input type="file" id="photoInput" accept="image/*" multiple hidden>
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
